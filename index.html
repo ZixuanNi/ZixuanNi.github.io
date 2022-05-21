@@ -155,7 +155,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/05/20/Continual-Learning-And-Catastrophic-Forgetting/">Continual Learning And Catastrophic Forgetting</a>
+      <a class="article-title" href="/2022/05/20/Continual-Learning-And-Catastrophic-Forgetting/">Continual Learning and Catastrophic Forgetting</a>
     </h1>
   
 
@@ -168,10 +168,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##第一章</p>
-<p>内容</p>
+        <h1 id="连续学习（Continual-Learning）的定义："><a href="#连续学习（Continual-Learning）的定义：" class="headerlink" title="连续学习（Continual Learning）的定义："></a>连续学习（Continual Learning）的定义：</h1><p>现阶段在深度学习中用的比较多的<strong>连续学习</strong>的定义一般是：连续学习指模型基于不断进入的训练数据连续更新模型参数，且在训练过程中不使用过去数据的学习方式。</p>
 <hr>
-<h2 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h2><p>内容</p>
+<h1 id="连续学习的问题："><a href="#连续学习的问题：" class="headerlink" title="连续学习的问题："></a>连续学习的问题：</h1><p>虽然连续学习看起来很适合现实生活，但现阶段的连续学习也有自己的问题。</p>
+<h2 id="灾难性遗忘（Catastrophic-Forgetting）："><a href="#灾难性遗忘（Catastrophic-Forgetting）：" class="headerlink" title="灾难性遗忘（Catastrophic Forgetting）："></a>灾难性遗忘（Catastrophic Forgetting）：</h2><p>什么是灾难性遗忘，这是一个很主观的问题。传统的，我们以为模型在连续拟合新数据的过程中会破坏之前的模型表征空间分布。但其实<strong>破坏</strong>这个词是带感情色彩的，与其说成破坏或许使用<strong>改变</strong>会更合适一点。因为破坏给人一种模型在变不好的的印象，但其实，模型表征空间的分布目的是为了拟合当前数据分布。但这并不意味着，只有这一种模型表征空间分布的方式。最简单的例子就是，一个在cifar10上训练过的RN18(10)可以达到95%的精度，其与只在cifar10的5个类上训练的RN18(5)在这5个类上有相同的精度（95%）。然而，RN18(5)则在cifar10全集上的精度远远不如RN18(10)。这个例子就可以说明，为了达到拟合一个数据分布的目的，模型的表征空间分布并不是唯一的。所以，<strong>破坏</strong>这个词自然就有一些问题。那么所谓的<strong>灾难性遗忘</strong>指的就是模型在拟合连续训练数据的过程中表征空间的分布不再能很好的拟合过去数据。从而导致模型在之前数据上的拟合能力变差。我们将这种现象称为<strong>灾难性遗忘</strong>。但其实这个描述中，有个关键的点并没有说具体。那就是<strong>拟合能力</strong>。我们如何去判断模型的拟合能力？我们常用的方式就是针对特定任务讨论。比如分类任务，在分类任务中，我们将模型在过去类数据上的分类能力作为模型拟合能力的表现形式。从而引出了现阶段比较流行的<strong>类增长学习(Class Incremental Learning)<strong>。<br>从上面的描述中，好像这个问题已经被我们定义完了，但其实并没有，还有一个模型本身的局限导致的问题。那就是</strong>模型的拟合能力上界！</strong>，每一个深度学习模型都有自己的理论拟合能力上限，用什么样的指标定义这个拟合能力就有什么样的指标上限。比如分类任务，每个模型都有自己的分类能力上限。所以，在连续学习过程中，不断的拟合新数据时，在假设灾难性遗忘已经被完美解决的情况下模型也会出现<em>灾难性遗忘</em>`。那么这里就又有一个问题了，如何定义模型的拟合能力上限。以分类任务举例，模型对数据的分类精度达到多少算模型拟合能力的上界？是最多类别下的最低分类精度还是最少类别下的最高分类精度。最低分类精度如何定义？最高分类精度如何定义？现阶段最好的方式就是以上帝视角来让模型全训练所有连续数据的集合，给出的精度就是当前模型在当前总数据下的模型拟合能力上界。通过joint learning 和 continual learning结果的比较就可以说明模型是否存在灾难性遗忘，以及存在的强弱。</p>
 <hr>
 <p>###参考文献</p>
 
@@ -293,7 +293,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">他想知道那是谁，为何总是沉默寡言。</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">他想知道那是谁，为何总是沉默寡言。因为自己一直在做连续学习相关的工作，而在探讨这个工作的过程中，遇到了很多问题，也有一些相关的心得，所以想为自己的这些小心得和小想法一个归处，也是给自己的一个总结。未来也许还会记录一些别的东西，或许科研或许生活。</div>
   	  	
     	</section>
     
